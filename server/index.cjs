@@ -193,54 +193,48 @@ app.post('/decrypt', async (req, res) => {
   const { email, fileId } = req.body;
 
   try {
-      // Find the user by email
       const user = await User.findOne({ email });
       if (!user) {
           return res.status(404).send('User not found');
       }
 
-      // Find the file by ID
       const file = user.files.id(fileId);
       if (!file) {
           return res.status(404).send('File not found');
       }
 
-      // Retrieve the encrypted file from IPFS using Axios
       const response = await axios.get(
           `https://${process.env.PINATA_GATEWAY}/ipfs/${file.hash}`, 
           { responseType: 'arraybuffer' }
       );
       const encryptedBytes = new Uint8Array(response.data);
 
-      // Convert key and IV from hex to bytes
       const aesKey = aesjs.utils.hex.toBytes(file.key);
       const iv = aesjs.utils.hex.toBytes(file.iv);
-
-      // Initialize AES CBC decryption
       const aesCbc = new aesjs.ModeOfOperation.cbc(aesKey, iv);
 
-      // Decrypt the file
       const decryptedBytes = aesCbc.decrypt(encryptedBytes);
-
-      // Remove padding
       const decryptedBytesUnpadded = aesjs.padding.pkcs7.strip(decryptedBytes);
       
-      const downloadDir = path.join(require('os').homedir(), 'Downloads');
-      const downloadPath = path.join(downloadDir, file.filename);
+      const downloadDir = '/tmp';  // Use /tmp directory
+      if (!fs.existsSync(downloadDir)) {
+          fs.mkdirSync(downloadDir, { recursive: true });
+      }
       
+      const downloadPath = path.join(downloadDir, file.filename);
       fs.writeFileSync(downloadPath, Buffer.from(decryptedBytesUnpadded));
 
-      res.download(downloadPath, file.filename, (err) => {
-        if(err){
-          console.log('Error downloading file:', err);
-        }
-      });
+      // Instead of res.download(), send the file content
+      res.setHeader('Content-Disposition', `attachment; filename="${file.filename}"`);
+      res.setHeader('Content-Type', 'application/octet-stream');
+      res.send(Buffer.from(decryptedBytesUnpadded));
 
   } catch (error) {
       console.error('Error decrypting file:', error);
       res.status(500).send('Error decrypting file');
   }
 });
+
 
 app.post('/share', async(req, res) => {
   const {email ,recipientEmail, fileId }  = req.body;
