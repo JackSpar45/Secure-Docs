@@ -13,7 +13,7 @@ const Dashboard = ({ email, onLogout }) => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/profile', {
+                const response = await axios.get(`${API_BASE_URL}/profile`, {
                     params: { email },
                 });
                 setProfile(response.data);
@@ -30,7 +30,7 @@ const Dashboard = ({ email, onLogout }) => {
     // Decrypt file function
     const handleDecrypt = async (file) => {
         try {
-            const response = await axios.post('http://localhost:5000/decrypt', {
+            const response = await axios.post(`${API_BASE_URL}/decrypt`, {
                 email,
                 fileId: file._id, // Pass file ID to identify the file
             });
@@ -49,7 +49,7 @@ const Dashboard = ({ email, onLogout }) => {
         if (!recipientEmail) return;
 
         try {
-            const response = await axios.post('http://localhost:5000/share', {
+            const response = await axios.post(`${API_BASE_URL}/share`, {
                 email,
                 recipientEmail,
                 fileId: file._id, // Pass file ID to identify the file
@@ -77,7 +77,7 @@ const Dashboard = ({ email, onLogout }) => {
             formData.append('email', email);
 
             try {
-                const response = await axios.post('http://localhost:5000/upload', formData, {
+                const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
