@@ -16,7 +16,7 @@ function HomePage() {
   const openSignUpModal = () => setIsSignUpModalOpen(true);
   const closeSignUpModal = () => setIsSignUpModalOpen(false);
   
-
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
   const handleRegistration = async (e) => {
     e.preventDefault();
     if(password != confirmPassword){
@@ -25,7 +25,7 @@ function HomePage() {
     }
 
     try{
-      const response = await axios.post("http://localhost:5000/register", { 
+      const response = await axios.post(`${API_BASE_URL}/register`, { 
         email: userId,
         password: password,
       });
@@ -59,7 +59,7 @@ function HomePage() {
     captchaRef.current.reset();
     
     try {
-        const response = await axios.post("http://localhost:5000/login", {
+        const response = await axios.post(`${API_BASE_URL}/login`, {
             email: loginEmail,
             password: loginPassword,
             token: token,
