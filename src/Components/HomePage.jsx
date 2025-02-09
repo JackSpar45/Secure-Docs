@@ -110,7 +110,7 @@ const handleLogout = () => {
             <div className='flex space-x-8 text-xl ml-20'>
                 <a className='hover:text-blue-600' href='https://shiny-vicuna-0cb.notion.site/Blockchain-Based-Secured-Data-Sharing-1489a33133c780c5825fd9a49294504c'>About</a>
                 <a className='hover:text-blue-600' href='#' onClick={handleScrollToFeatures}>Features</a>
-                <a className='hover:text-blue-600' href='https://github.com/Jayant-Ramdurg/Secure-Docs'>Github</a>
+                <a className='hover:text-blue-600' href='https://github.com/JackSpar45/Secure-Docs'>Github</a>
             </div>
 
             <div className='ml-20'>
