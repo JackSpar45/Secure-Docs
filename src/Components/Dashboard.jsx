@@ -29,19 +29,33 @@ const Dashboard = ({ email, onLogout }) => {
 
     // Decrypt file function
     const handleDecrypt = async (file) => {
-        try {
-            const response = await axios.post(`${API_BASE_URL}/decrypt`, {
-                email,
-                fileId: file._id, // Pass file ID to identify the file
-            });
-            const decryptedData = response.data;
-            console.log('Decrypted file:', decryptedData);
-            alert('File decrypted successfully!');
-        } catch (error) {
-            console.error('Error decrypting file:', error);
-            alert('File decryption failed.');
-        }
-    };
+    try {
+        const response = await axios.post('https://secure-docs.onrender.com/decrypt', 
+        { email, fileId: file._id }, 
+        { responseType: 'blob' });  // Ensure response is treated as binary
+
+        // Create a blob URL from the response
+        const blob = new Blob([response.data], { type: 'application/octet-stream' });
+        const url = URL.createObjectURL(blob);
+
+        // Create a temporary download link
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = file.filename; // Set downloaded filename
+        document.body.appendChild(link);
+        link.click(); // Trigger the download
+        document.body.removeChild(link);
+
+        // Clean up URL
+        URL.revokeObjectURL(url);
+        
+        alert('File decrypted and downloaded successfully!');
+    } catch (error) {
+        console.error('Error decrypting file:', error);
+        alert('File decryption failed.');
+    }
+};
+
 
     // Share file function
     const handleShare = async (file) => {
