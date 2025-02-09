@@ -3,6 +3,8 @@ import axios from 'axios';
 import './Dashboard.css'; 
 import DescriptionIcon from '@mui/icons-material/Description';
 
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 const Dashboard = ({ email, onLogout }) => {
     const [profile, setProfile] = useState({});
     const [loginTimestamps, setLoginTimestamps] = useState([]);
