@@ -1,0 +1,54 @@
+.dashboard {
+    margin: 20px;
+}
+
+.logout-btn {
+    background-color: rgb(241, 63, 63);
+    color: white;
+    border: none;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.logout-btn:hover{
+    background-color: rgb(190, 1, 1);
+}
+
+.logs-table {
+    width: 60%;
+    border-collapse: collapse;
+    justify-content: center;
+    text-align: center; /* Center all text in the table */
+}
+
+.logs-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: #f2f2f2;
+    text-align: center;
+    font-weight: bold;
+}
+
+.logs-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.even-row {
+    background-color: #f9f9f9;
+}
+
+.odd-row {
+    background-color: #ffffff;
+}
+
+.no-logs {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
