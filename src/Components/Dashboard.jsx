@@ -106,7 +106,7 @@ const Dashboard = ({ email, onLogout }) => {
 
         return (
             <div className='File_Upload'>
-                <p className='text-xl mt-10 font-semibold'>Upload New File <i>( Files upto 5MB are supported for now )</i> </p>
+                <p className='text-xl mt-10 font-semibold'>Upload New File</p>
                 <input type="file" onChange={handleFileChange} />
                 <button onClick={handleUpload} className='bg-green-500 rounded-md ml-[-50px] text-white px-5 py-2 hover:bg-green-600'>Upload</button>
             </div>
