@@ -37,7 +37,7 @@ This MVP demonstrates innovation through its fusion of decentralized tech and cr
 - **Data Encryption**: Files are encrypted client-side using AES before upload or sharing, ensuring privacy even if data is intercepted.
 - **Decentralized Storage**: IPFS (via Pinata) splits and stores encrypted files across multiple nodes, offering scalability and redundancy.
 - **Audit Trails**: File hashes and access logs are recorded immutably on Ethereum, enabling transparency and accountability.
-- **Multi-Factor Authentication (MFA)**: MFA via OTPs, SMS, or biometrics (API-integrated) secures user logins.
+- **Secure Authentication**: secures user logins.
 - **Incentivized Storage**: Leverages decentralized storage incentives for cost efficiency and growth potential.
 
 ## Technical Workflow
@@ -54,7 +54,7 @@ This MVP demonstrates innovation through its fusion of decentralized tech and cr
 - **Encryption**: AES — ensures client-side file security.
 - **Decentralized Storage**: IPFS (via Pinata) — provides scalable, distributed file hosting.
 - **Blockchain**: Ethereum — records IPFS hashes and audit trails immutably.
-- **Security**: Google reCAPTCHA — prevents bot attacks; MFA APIs — enhance login protection.
+- **Security**: Google reCAPTCHA — prevents bot attacks;
 - **Libraries**: bcrypt (password hashing), Pinata SDK (IPFS uploads).
 
 ## Challenges Faced During Development
@@ -85,7 +85,7 @@ This MVP demonstrates innovation through its fusion of decentralized tech and cr
 - **Impact**: Enhances privacy and trust in digital file handling, potentially transforming industries like legal, healthcare, or finance.
 
 ## User Experience
-- **Sign Up/Login**: Quick, secure, and bot-proof with reCAPTCHA and MFA.
+- **Sign Up/Login**: Quick, secure, and bot-proof with reCAPTCHA.
 - **Dashboard**: Clean layout for profile info, file actions, and logs.
 - **File Operations**: Seamless encryption, upload, decryption, and sharing.
 - **Transparency**: Blockchain-backed logs instill confidence.
