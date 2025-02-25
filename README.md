@@ -55,7 +55,7 @@ This MVP demonstrates innovation through its fusion of decentralized tech and cr
 - **Decentralized Storage**: IPFS (via Pinata) — provides scalable, distributed file hosting.
 - **Blockchain**: Ethereum — records IPFS hashes and audit trails immutably.
 - **Security**: Google reCAPTCHA — prevents bot attacks; MFA APIs — enhance login protection.
-- **Libraries**: bcrypt (password hashing), Web3.js (Ethereum integration), Pinata SDK (IPFS uploads).
+- **Libraries**: bcrypt (password hashing), Pinata SDK (IPFS uploads).
 
 ## Challenges Faced During Development
 - **IPFS Integration**
