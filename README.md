@@ -1,8 +1,12 @@
 ## Login Credentials
 
-Email ID: example@gmail.com
+1) Email ID: example@gmail.com
 
-password: abc123
+   password: abc123
+2) Email ID: user1@gmail.com
+
+   password: user1 
+
 
 # Secure Docs: A Decentralized File Encryption and Sharing Platform
 
