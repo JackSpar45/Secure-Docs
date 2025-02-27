@@ -1,5 +1,6 @@
 ## Login Credentials
 
+_( Login may take upto 20 seconds for the first time )_
 ```
 1) Email ID: user10@gmail.com
    password: user10
@@ -13,7 +14,7 @@
 
 # Secure Docs: A Decentralized File Encryption and Sharing Platform
 
-Check out the documentation [here](https://drive.google.com/file/d/1SYXkmCM2-E9tnbZtgx36oImX0KgbjzZZ/view?usp=drive_link)
+Check out the documentation [here](https://drive.google.com/file/d/18f7fVEKFHwU684bNjbwd8-7T932rMH9J/view?usp=drive_link)
 
 Secure Docs is an innovative web application designed to provide a secure, decentralized platform for file encryption, storage, and sharing. Built as a minimum viable product (MVP) for a hackathon, it tackles real-world challenges in data privacy and security by leveraging cutting-edge technologies like IPFS, blockchain, and AES encryption. Secure Docs stands out as a practical, user-friendly solution that redefines how individuals and organizations manage sensitive digital assets.
 
