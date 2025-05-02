@@ -100,28 +100,50 @@ const handleLogout = () => {
         <div>
              
         { /*Navbar*/}
-        <div className='flex flex-row justify-around items-center mt-5 py-3 border-b-[1px] border-gray-300'> 
-            {/*navbar-brand*/}
-            <div className='text-4xl text-blue-900 font-semibold flex flex-row'>
-            <img src='/images/logo1.png' className='mr-2' width="60" height="50"></img>    Secure Docs
+        <div className='sticky top-0 z-50 bg-white/30 backdrop-blur-md border-b-[1px] border-gray-300/80'>
+          <div className='flex flex-row justify-between items-center py-3 mx-auto max-w-7xl px-4 sm:px-6'>
+            {/* Mobile Menu Button */}
+            <button 
+              className='lg:hidden p-2 text-blue-900 hover:text-blue-600'
+              onClick={() => document.querySelector('.nav-items').classList.toggle('hidden')}
+            >
+              <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M4 6h16M4 12h16M4 18h16' />
+              </svg>
+            </button>
+
+            {/* Logo (centered on mobile) */}
+            <div className='text-3xl lg:text-4xl text-blue-900 font-semibold flex flex-row items-center'>
+              <img src='/images/logo1.png' className='mr-2' width="50" height="40" alt="Logo" />
+              Secure Docs
             </div>
 
-            {/*Navbar-items*/}
-            <div className='flex space-x-8 text-xl ml-20'>
-                <a className='hover:text-blue-600' href='https://shiny-vicuna-0cb.notion.site/Blockchain-Based-Secured-Data-Sharing-1489a33133c780c5825fd9a49294504c'>About</a>
-                <a className='hover:text-blue-600' href='#' onClick={handleScrollToFeatures}>Features</a>
-                <a className='hover:text-blue-600' href='https://github.com/JackSpar45/Secure-Docs'>Github</a>
+            {/* Desktop Navigation (hidden on mobile) */}
+            <div className='hidden lg:flex space-x-8 text-xl ml-20'>
+              <a className='hover:text-blue-600' href='https://shiny-vicuna-0cb.notion.site/Blockchain-Based-Secured-Data-Sharing-1489a33133c780c5825fd9a49294504c'>About</a>
+              <a className='hover:text-blue-600' href='#' onClick={handleScrollToFeatures}>Features</a>
+              <a className='hover:text-blue-600' href='https://github.com/JackSpar45/Secure-Docs'>Github</a>
             </div>
 
-            <div className='ml-20'>
-                {/*Login/Signup Button*/}
-                <button onClick={openLoginModal} className='px-5 text-xl hover:text-blue-600'>
-                    Login
-                </button>
-                <button onClick={openSignUpModal} className='bg-indigo-600 text-l text-white px-7 py-2.5 rounded-md hover:bg-blue-500'>
-                    Sign Up
-                </button>
+            {/* Desktop Buttons (hidden on mobile) */}
+            <div className='hidden lg:flex ml-20'>
+              <button onClick={openLoginModal} className='px-5 text-xl hover:text-blue-600'>Login</button>
+              <button onClick={openSignUpModal} className='bg-indigo-600 text-white px-7 py-2.5 rounded-md hover:bg-blue-500'>Sign Up</button>
             </div>
+          </div>
+
+          {/* Mobile Navigation Items (hidden by default) */}
+          <div className='nav-items hidden lg:hidden bg-white/50 backdrop-blur-sm px-4 pb-4'>
+            <div className='flex flex-col space-y-4'>
+              <a className='text-blue-900 hover:text-blue-600 text-lg' href='https://shiny-vicuna-0cb.notion.site/Blockchain-Based-Secured-Data-Sharing-1489a33133c780c5825fd9a49294504c'>About</a>
+              <a className='text-blue-900 hover:text-blue-600 text-lg' href='#' onClick={handleScrollToFeatures}>Features</a>
+              <a className='text-blue-900 hover:text-blue-600 text-lg' href='https://github.com/JackSpar45/Secure-Docs'>Github</a>
+              <div className='flex space-x-4'>
+                <button onClick={openLoginModal} className='flex-1 text-blue-900 hover:text-blue-600 py-2 border border-blue-900 rounded'>Login</button>
+                <button onClick={openSignUpModal} className='flex-1 bg-indigo-600 text-white py-2 rounded-md hover:bg-blue-500'>Sign Up</button>
+              </div>
+            </div>
+          </div>
         </div>
         
         
@@ -249,35 +271,41 @@ const handleLogout = () => {
        {/* Dont touch from here --------> */}
 
         {/* Hero Section */}
-      <div className="px-10  flex flex-row justify-between items-center">
-        
-        {/* Text Column */}
-        <div className="flex-1 flex flex-col px-20 ">
-          <span className="text-4xl text-blue-900 font-bold">
-            Empowering Secure Data Sharing 🔗 Through Blockchain
-          </span>
+      <div className="min-h-screen flex items-center justify-center py-20">
+        <div className="w-full max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-x-20">
+            {/* Text Column */}
+            <div className="flex-1 flex flex-col order-1 md:order-none">
+              <h1 className="text-4xl text-blue-900 font-bold leading-tight">
+                Empowering Secure Data Sharing 🔗 Through Blockchain
+              </h1>
 
-          <span className="text-xl text-gray-500 py-5">
-            Secure Docs is a decentralized platform that uses blockchain technology to securely share and store sensitive documents. Our mission is to help users create, store, and share their confidential data with confidence.
-          </span>
+              <p className="text-lg md:text-xl text-gray-600 py-6">
+                Secure Docs is a decentralized platform that uses blockchain technology to securely share and store sensitive documents. Our mission is to help users create, store, and share their confidential data with confidence.
+              </p>
 
-          <span className="text-4xl mt-5 text-blue-900 font-bold">
-            Trusted, Transparent and Secure🔒
-          </span>
+              <h2 className="text-3xl md:text-4xl text-blue-900 font-bold mt-4">
+                Trusted, Transparent and Secure🔒
+              </h2>
 
-          <span className="text-xl text-gray-500 py-5">
-            Your data deserves uncompromised security and accountability. Take control of your data with the future of secure data sharing.
-          </span>
-          
-          <button className='mt-5 bg-indigo-600 text-xl text-white px-5 py-4 rounded-md  hover:bg-blue-500 w-80'>
-             Get Started ⏩
-          </button>
-          
-        </div>
-        
-        {/*File Graphics/Gif Column */}
-        <div className="flex-1">
-           <img src='/images/hero-img' className='rounded-xl mt-10' height='400' width='550'></img>
+              <p className="text-lg md:text-xl text-gray-600 py-6">
+                Your data deserves uncompromised security and accountability. Take control of your data with the future of secure data sharing.
+              </p>
+              
+              <button className='mt-4 bg-indigo-600 text-xl text-white px-8 py-4 rounded-md hover:bg-blue-500 w-full md:w-80'>
+                Get Started ⏩
+              </button>
+            </div>
+            
+            {/* Image Column */}
+            <div className="flex-1 order-0 md:order-none mb-12 md:mb-0">
+              <img 
+                src='/images/hero-img' // Make sure to add proper file extension
+                alt='Secure Docs Illustration'
+                className='rounded-xl w-full h-auto object-cover shadow-xl'
+              />
+            </div>
+          </div>
         </div>
       </div>
        
